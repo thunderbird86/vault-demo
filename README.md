@@ -4,7 +4,7 @@
 - vault server -dev > /dev/null 2>&1 &
 - vault secrets enable -path=ssh ssh
 - vault write ssh/config/ca generate_signing_key=true
-- vault write ssh/role/demo -<<"EOH" 
+- vault write ssh/roles/demo -<<"EOH" 
 - vault write -field=signed_key ssh/sign/demo public_key="@${HOME}/.ssh/bastion.pub" > ~/.ssh/bastion-cert
 - vault ssh -mode=ca -role=devops user@bastion_ip
 
